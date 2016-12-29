@@ -120,10 +120,15 @@ public class BaiduLocation extends CordovaPlugin {
   @Override
   public void onRequestPermissionResult(int requestCode, String[] permissions, int[] grantResults) throws JSONException {
     PluginResult result;
-    for (int r : grantResults) {
+    for (int i = 0; i < grantResults.length; i++) {
+      final int r = grantResults[i];
+      final String permission = permissions[i];
       if (r == PackageManager.PERMISSION_DENIED) {
         LOG.d(TAG, "Permission Denied!");
-        result = new PluginResult(PluginResult.Status.ILLEGAL_ACCESS_EXCEPTION);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("permission", permission);
+        jsonObject.put("message", "获取权限失败。");
+        result = new PluginResult(PluginResult.Status.ILLEGAL_ACCESS_EXCEPTION, jsonObject);
         context.sendPluginResult(result);
         return;
       }
