@@ -19,9 +19,16 @@
 var exec = require('cordova/exec');
 
 var BaiduLocation = {
-  getCurrentPosition: function(successFn, failureFn) {
-    exec(successFn, failureFn, 'BaiduLocation', 'getCurrentPosition', []);
-  }
+
+    /**
+     * 获取当前位置
+     * @param successFn
+     * @param failureFn
+     */
+    getCurrentPosition: function (successFn, failureFn) {
+        exec(successFn, failureFn, 'BaiduLocation', 'getCurrentPosition', []);
+    }
+    
 };
 
-module.exports = BaiduLocation
+module.exports = BaiduLocation;
