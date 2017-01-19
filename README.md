@@ -29,7 +29,7 @@ This plugin provides location by baidu location.
 
 This requires cordova 5.0+
 
-    cordova plugin add https://github.com/hucarrot/youlove-plugin-baidu-location.git
+    cordova plugin add https://github.com/hucarrot/youlove-plugin-baidu-location.git --variable API_KEY=XXX
 
 ## Supported Platforms
 
